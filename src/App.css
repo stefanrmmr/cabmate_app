@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -35,4 +36,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.my-swiper-slide {
+  width: 132px !important;
+}
+
+.swiper-wrapper {
+  width: 100vw;
+}
+
+.swiper-container {
+  overflow: visible !important;
 }
