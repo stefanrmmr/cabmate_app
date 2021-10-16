@@ -101,14 +101,14 @@ const Button = styled.div`
 `;
 
 function dragHandler(offset, isDetailView, setDetailView){
-  if(offset > 100){
+  if(offset > 50){
     if(isDetailView === true){
       setDetailView(false);
     }
   }
 }
 
-export default function BigCard({isDetailView, setDetailView}){
+export default function BigCard({isDetailView, setDetailView, newFeature}){
   const [slidePos, setSlidePos] = useState(0);
 
   return <BigCardItem 
@@ -125,7 +125,7 @@ export default function BigCard({isDetailView, setDetailView}){
     <Header>
       <Handle />
       <TitleWrapper>
-        {"34 - Auburndale"}
+        {newFeature.properties.location_id + " - " + newFeature.properties.zone}
       </TitleWrapper>
     </Header>
     <Separator />
@@ -151,7 +151,7 @@ export default function BigCard({isDetailView, setDetailView}){
           <Icon src="./demand.svg" alt="Demand Icon"/>
         </IconWrapper>
         <Text>
-          {236}
+          {Math.round(newFeature.properties.value)}
         </Text>
       </ListElem>
       <ListElem>

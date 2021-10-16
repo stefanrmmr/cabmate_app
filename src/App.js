@@ -6,7 +6,7 @@ import bbox from '@turf/bbox';
 import { easeCubic } from 'd3-ease';
 import data from './data.json';
 import exampleData from './example.json';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, useHistory } from "react-router-dom";
 import Setting from './pages/setting';
 import Map from './pages/map';
 import Stats from './pages/stats';
@@ -20,20 +20,18 @@ import mapboxgl from 'mapbox-gl';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
-
-
-
 export default function App() {
   const [isDetailView, setDetailView] = useState(false);
   const [aiData, setAiData] = useState();
   const [viewport, setViewport] = useState({
-    latitude: 40.619256,
-    longitude: -73.964126,
+    latitude: 40.640927,
+    longitude: -73.973601,
     zoom: 13,
     width: "100vw",
     height: "100vh",
   });
   const [selectedDistric, setSelectedDistrict] = useState('188');
+  let history = useHistory();
 
   useEffect(() => {
     fetch(
@@ -53,6 +51,7 @@ export default function App() {
 
   function clickHandler(event){
     const feature = event.features[0];
+    console.log(feature);
     if (feature) {
       // calculate the bounding box of the feature
       const [minLng, minLat, maxLng, maxLat] = bbox(feature);
@@ -64,10 +63,11 @@ export default function App() {
           [maxLng, maxLat]
         ],
         {
-          padding: 100
+          padding: 120
         }
       );
       setSelectedDistrict(feature.properties.location_id);
+      setDetailView(true);
       setViewport({
         ...viewport,
         longitude,
@@ -100,7 +100,7 @@ export default function App() {
             <Account />
           </Route>
           <Route path="/">
-            <Start />
+            <Start history={history}/>
           </Route>
         </Switch>
       </div>

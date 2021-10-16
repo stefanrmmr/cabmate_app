@@ -3,6 +3,8 @@ import CapMarker from './../components/capMarker';
 import BackgroundFade from './../components/backgroundFade';
 import { layerStyle, selectedLayerStyle } from './../layerStyle';
 import  { useState, useEffect, useMemo, useCallback } from 'react';
+import { testLocation } from './start';
+
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import Searchbar from '../components/Searchbar';
 import Carousel from '../components/carousel';
@@ -36,6 +38,7 @@ const BigCardWrapper = styled.div`
 `;
 
 export default function Map({computedData, newFeature, viewport, setViewport, clickHandler, shortedArray, setDetailView, isDetailView, setSelectedDistrict}){
+
   return <MapItem>
     <ReactMapGL 
       {...viewport} 
@@ -50,17 +53,17 @@ export default function Map({computedData, newFeature, viewport, setViewport, cl
       <Source id="new-data" type="geojson" data={newFeature}>
         <Layer {...selectedLayerStyle} />
       </Source>
-      <Marker latitude={40.619256} longitude={-73.964126}>
+      <Marker latitude={40.640927} longitude={-73.973601}>
         <CapMarker/>
       </Marker>
     </ReactMapGL>
     <BackgroundFade/>
     <Searchbar />
     {isDetailView === false && <CarouselWrapper>
-      <Carousel shortedArray={shortedArray} setDetailView={setDetailView} setSelectedDistrict={setSelectedDistrict}/>
+      <Carousel shortedArray={shortedArray} setDetailView={setDetailView} setSelectedDistrict={setSelectedDistrict} setViewport={setViewport} viewport={viewport}/>
     </CarouselWrapper>}
     {isDetailView === true && <BigCardWrapper>
-      <BigCard setDetailView={setDetailView} isDetailView={isDetailView} setSelectedDistrict={setSelectedDistrict}/>
+      <BigCard setDetailView={setDetailView} isDetailView={isDetailView} setSelectedDistrict={setSelectedDistrict} newFeature={newFeature}/>
     </BigCardWrapper>}
   </MapItem>
 }

@@ -3,6 +3,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Pagination } from 'swiper';
 import 'swiper/swiper.min.css';
 import './../App.css';
+import bbox from '@turf/bbox';
+import { WebMercatorViewport} from 'react-map-gl';
+import { easeCubic } from 'd3-ease';
 
 SwiperCore.use([Pagination]);
 
@@ -68,14 +71,33 @@ const Text = styled.div`
   font-size: 13px;
 `;
 
-function clickHandler(setDetailView, id, setSelectedDistrict){
+function clickHandler(setDetailView, id, setSelectedDistrict, setViewport, viewport, feature){
   setDetailView(true);
   setSelectedDistrict(id);
+  const [minLng, minLat, maxLng, maxLat] = bbox(feature);
+  // construct a viewport instance from the current state
+  const vp = new WebMercatorViewport(viewport);
+  const {longitude, latitude, zoom} = vp.fitBounds(
+    [
+      [minLng, minLat],
+      [maxLng, maxLat]
+    ],
+    {
+      padding: 100
+    }
+  );
+  setViewport({
+    ...viewport,
+    longitude,
+    latitude: latitude - 0.02,
+    zoom,
+    transitionDuration: 1000,
+    transitionEasing: easeCubic
+  });
 }
 
 
-export default function Carousel({shortedArray, setDetailView, setSelectedDistrict}){
-  console.log(shortedArray[0].properties.location_id);
+export default function Carousel({shortedArray, setDetailView, setSelectedDistrict, viewport, setViewport}){
   return <CarouselItem>
     <Swiper
       spaceBetween={16}
@@ -84,7 +106,7 @@ export default function Carousel({shortedArray, setDetailView, setSelectedDistri
       onSwiper={(swiper) => console.log(swiper)}
     >
       {shortedArray.map((district, index)=>(
-        <SwiperSlide key={index} className='my-swiper-slide' onClick={()=>clickHandler(setDetailView, shortedArray[index].properties.location_id, setSelectedDistrict)}>
+        <SwiperSlide key={index} className='my-swiper-slide' onClick={()=>clickHandler(setDetailView, shortedArray[index].properties.location_id, setSelectedDistrict, setViewport, viewport, shortedArray[index])}>
           <Slide>
             <Header>
               <TitleWrapper>

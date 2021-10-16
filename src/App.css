@@ -1,6 +1,7 @@
 .App {
   position: relative;
   overflow: hidden;
+  background-color: rgba(8, 47, 59, 0.05);
 }
 
 .App-logo {
