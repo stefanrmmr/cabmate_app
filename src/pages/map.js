@@ -3,7 +3,8 @@ import CapMarker from './../components/capMarker';
 import BackgroundFade from './../components/backgroundFade';
 import { layerStyle, selectedLayerStyle } from './../layerStyle';
 import  { useState, useEffect, useMemo, useCallback } from 'react';
-import ReactMapGL, { Marker, Source, Layer, LinearInterpolator, WebMercatorViewport} from 'react-map-gl';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import ReactMapGL, { Marker, Source, Layer, LinearInterpolator, WebMercatorViewport} from '!react-map-gl';
 import Searchbar from '../components/Searchbar';
 import Carousel from '../components/carousel';
 

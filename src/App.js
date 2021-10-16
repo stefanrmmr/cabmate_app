@@ -1,5 +1,6 @@
 import './App.css';
-import ReactMapGL, { Marker, Source, Layer, LinearInterpolator, WebMercatorViewport} from 'react-map-gl';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import ReactMapGL, { Marker, Source, Layer, LinearInterpolator, WebMercatorViewport} from '!react-map-gl';
 import  { useState, useEffect, useMemo, useCallback } from 'react';
 import { updatePercentiles } from './utility';
 import bbox from '@turf/bbox';
