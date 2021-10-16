@@ -14,6 +14,9 @@ import Stats from './pages/stats';
 import Account from './pages/account';
 import Start from './pages/start';
 
+// eslint-disable-next-line import/no-webpack-loader-syntax
+ReactMapGL.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
+
 export default function App() {
   const [aiData, setAiData] = useState();
   const [viewport, setViewport] = useState({

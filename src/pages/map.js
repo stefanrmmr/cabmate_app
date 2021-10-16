@@ -8,6 +8,9 @@ import ReactMapGL, { Marker, Source, Layer, LinearInterpolator, WebMercatorView
 import Searchbar from '../components/Searchbar';
 import Carousel from '../components/carousel';
 
+// eslint-disable-next-line import/no-webpack-loader-syntax
+ReactMapGL.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
+
 const MapItem = styled.div`
 
 `;
