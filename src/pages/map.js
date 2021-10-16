@@ -10,6 +10,7 @@ import Carousel from '../components/carousel';
 import ReactMapGL, { Marker, Source, Layer, LinearInterpolator, WebMercatorViewport} from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
+import BigCard from '../components/bigCard';
 
 // eslint-disable-next-line import/no-webpack-loader-syntax
 mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
@@ -25,9 +26,16 @@ const CarouselWrapper = styled.div`
   left: 0;
   z-index: 1001;
 `;
+const BigCardWrapper = styled.div`
+  position: absolute;
+  width: 100vw;
+  height: 382px;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
+`;
 
-export default function Map({computedData, newFeature, viewport, setViewport, clickHandler, shortedArray}){
-
+export default function Map({computedData, newFeature, viewport, setViewport, clickHandler, shortedArray, setDetailView, isDetailView, setSelectedDistrict}){
   return <MapItem>
     <ReactMapGL 
       {...viewport} 
@@ -48,8 +56,11 @@ export default function Map({computedData, newFeature, viewport, setViewport, cl
     </ReactMapGL>
     <BackgroundFade/>
     <Searchbar />
-    <CarouselWrapper>
-      <Carousel shortedArray={shortedArray}/>
-    </CarouselWrapper>
+    {isDetailView === false && <CarouselWrapper>
+      <Carousel shortedArray={shortedArray} setDetailView={setDetailView} setSelectedDistrict={setSelectedDistrict}/>
+    </CarouselWrapper>}
+    {isDetailView === true && <BigCardWrapper>
+      <BigCard setDetailView={setDetailView} isDetailView={isDetailView} setSelectedDistrict={setSelectedDistrict}/>
+    </BigCardWrapper>}
   </MapItem>
 }

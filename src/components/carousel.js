@@ -68,8 +68,13 @@ const Text = styled.div`
   font-size: 13px;
 `;
 
+function clickHandler(setDetailView, id, setSelectedDistrict){
+  setDetailView(true);
+  setSelectedDistrict(id);
+}
 
-export default function Carousel({shortedArray}){
+
+export default function Carousel({shortedArray, setDetailView, setSelectedDistrict}){
   console.log(shortedArray[0].properties.location_id);
   return <CarouselItem>
     <Swiper
@@ -79,7 +84,7 @@ export default function Carousel({shortedArray}){
       onSwiper={(swiper) => console.log(swiper)}
     >
       {shortedArray.map((district, index)=>(
-        <SwiperSlide key={index} className='my-swiper-slide'>
+        <SwiperSlide key={index} className='my-swiper-slide' onClick={()=>clickHandler(setDetailView, shortedArray[index].properties.location_id, setSelectedDistrict)}>
           <Slide>
             <Header>
               <TitleWrapper>

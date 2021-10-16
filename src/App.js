@@ -24,6 +24,7 @@ mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worke
 
 
 export default function App() {
+  const [isDetailView, setDetailView] = useState(false);
   const [aiData, setAiData] = useState();
   const [viewport, setViewport] = useState({
     latitude: 40.619256,
@@ -70,7 +71,7 @@ export default function App() {
       setViewport({
         ...viewport,
         longitude,
-        latitude,
+        latitude: latitude - 0.02,
         zoom,
         transitionInterpolator: new LinearInterpolator({
           around: [event.offsetCenter.x, event.offsetCenter.y]
@@ -90,7 +91,7 @@ export default function App() {
             <Setting />
           </Route>
           <Route path="/map">
-            <Map computedData={computedData} newFeature={newFeature} viewport={viewport} setViewport={setViewport} clickHandler={clickHandler} shortedArray={shortedArray}/>
+            <Map computedData={computedData} newFeature={newFeature} viewport={viewport} setViewport={setViewport} clickHandler={clickHandler} shortedArray={shortedArray} isDetailView={isDetailView} setDetailView={setDetailView} setSelectedDistrict={setSelectedDistrict}/>
           </Route>
           <Route path="/stats">
             <Stats />
