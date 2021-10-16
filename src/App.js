@@ -1,6 +1,5 @@
 import './App.css';
-// eslint-disable-next-line import/no-webpack-loader-syntax
-import ReactMapGL, { Marker, Source, Layer, LinearInterpolator, WebMercatorViewport} from '!react-map-gl';
+
 import  { useState, useEffect, useMemo, useCallback } from 'react';
 import { updatePercentiles } from './utility';
 import bbox from '@turf/bbox';
@@ -14,8 +13,15 @@ import Stats from './pages/stats';
 import Account from './pages/account';
 import Start from './pages/start';
 
+import ReactMapGL, { Marker, Source, Layer, LinearInterpolator, WebMercatorViewport} from 'react-map-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import mapboxgl from 'mapbox-gl';
+
 // eslint-disable-next-line import/no-webpack-loader-syntax
-ReactMapGL.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
+
+
+
 
 export default function App() {
   const [aiData, setAiData] = useState();
