@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { testLocation } from '../pages/start';
 
 const SearchbarItem = styled.div`
   position: absolute;
@@ -52,14 +53,14 @@ const Image = styled.img`
 `;
 
 
-export default function Searchbar(){
+export default function Searchbar({setMenuOpen}){
   return <SearchbarItem>
     <ImageWrapper>
       <Image src="./search.svg" alt="Search Icon"></Image>
     </ImageWrapper>
-    <Input type="text" placeholder="Search...">
+    <Input type="text" placeholder="Search..." value={testLocation.address}>
     </Input>
-    <Button>
+    <Button onClick={()=>setMenuOpen(true)}>
       <Image src="./menu.svg" alt="Menu Icon"></Image>
     </Button>
   </SearchbarItem>

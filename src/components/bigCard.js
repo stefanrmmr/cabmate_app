@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { motion } from "framer-motion";
 import { useState } from 'react';
+import { Link } from "react-router-dom";
  
 const BigCardItem = styled(motion.div)`
   position: absolute;
@@ -43,7 +44,7 @@ const Separator = styled.div`
   margin-bottom: 8px;
 `;
 const MainContent = styled.div`
-  width: calc(100vw - 48px - 48px);
+  width: calc(100vw - 48px - 70px);
   box-sizing: border-box;
   padding: 16px;
   display: flex;
@@ -56,7 +57,7 @@ const ListElem = styled.div`
   display: flex;
   align-items: center;
   gap: 16px;
-  width: 49%;
+  width: 50%;
 `;
 const IconWrapper = styled.div`
   background-color: rgba(8, 47, 59, 0.05);
@@ -81,6 +82,9 @@ const Footer = styled.div`
   gap: 16px;
   align-items: center;
   margin-bottom: 24px;
+  #maps-link{
+    text-decoration: none;
+  }
 `;
 const Adress = styled.div`
   display: flex;
@@ -98,6 +102,7 @@ const Button = styled.div`
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 16px;
+  text-decoration: none;
 `;
 
 function dragHandler(offset, isDetailView, setDetailView){
@@ -110,6 +115,8 @@ function dragHandler(offset, isDetailView, setDetailView){
 
 export default function BigCard({isDetailView, setDetailView, newFeature}){
   const [slidePos, setSlidePos] = useState(0);
+
+  const newUrl = "https://maps.google.com/?q=" + newFeature.properties.borough + "+" + newFeature.properties.zone;
 
   return <BigCardItem 
     drag="y"
@@ -175,12 +182,14 @@ export default function BigCard({isDetailView, setDetailView, newFeature}){
       <Adress>
         <Icon src="./location.svg" alt="Location Icon" />
         <Text>
-          {"2.5 miles, Horst-Kohl-Straß 10A"}
+          {Math.round(newFeature.properties.distance * 0.621371) + " miles, " + newFeature.properties.borough}
         </Text>
       </Adress>
-      <Button>
-        {"LET'S GO"}
-      </Button>
+      <a id="maps-link" href={newUrl}>
+        <Button>
+          {"LET'S GO"}
+        </Button>
+      </a>
     </Footer>
   </BigCardItem>
 }

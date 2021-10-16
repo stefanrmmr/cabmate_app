@@ -65,6 +65,13 @@ const IconWrapper = styled.div`
 const Icon = styled.img`
   
 `;
+const Badge = styled.img`
+  position: absolute;
+  margin-left: -10px;
+  margin-top: -10px;
+  width: 28px;
+  height: 28px;
+`;
 const Text = styled.div`
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
@@ -108,6 +115,7 @@ export default function Carousel({shortedArray, setDetailView, setSelectedDistri
       {shortedArray.map((district, index)=>(
         <SwiperSlide key={index} className='my-swiper-slide' onClick={()=>clickHandler(setDetailView, shortedArray[index].properties.location_id, setSelectedDistrict, setViewport, viewport, shortedArray[index])}>
           <Slide>
+            {index === 0 && <Badge src="./star.svg" alt="Star Icon" />}
             <Header>
               <TitleWrapper>
                 {"District " + district.properties.location_id}

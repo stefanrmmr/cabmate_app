@@ -59,6 +59,9 @@ const SearchContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 40px;
+  #map-link{
+    text-decoration: none;
+  }
 `;
 const SearchBar = styled.div`
   
@@ -117,6 +120,7 @@ const Button = styled.div`
   font-weight: 600;
   font-size: 16px;
   width: fit-content;
+  text-decoration: none;
 `;
 
 export default function Start(){
@@ -155,7 +159,7 @@ export default function Start(){
         <Input type="text" placeholder="Where are you right now?" value={isLocated !== null ? testLocation.address : null}>
         </Input>
       </SearchBar>
-      <Link to={"/map" + "?latitude=" + testLocation.coordinates.latitude + "&longitude=" + testLocation.coordinates.longitude}>
+      <Link id="map-link" to={"/map" + "?latitude=" + testLocation.coordinates.latitude + "&longitude=" + testLocation.coordinates.longitude}>
       <Button >
         {"LET'S START"}
       </Button>
