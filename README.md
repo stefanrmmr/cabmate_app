@@ -1,4 +1,4 @@
-![alt text](https://github.com/NilsJacobsen/cabmate_app/Git.jpg)
+![Pitch](https://github.com/NilsJacobsen/cabmate_app/blob/1be4c7206b4dd72fb305492b4073ee5e51ebb476/Git.jpg?raw=true)
 
 # Getting Started with Create React App
 
