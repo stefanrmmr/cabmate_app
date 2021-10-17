@@ -3,6 +3,9 @@
 Pitch Deck:
 https://app.pitch.com/app/public/player/f190a4b1-e75f-4214-8029-d42ce60aaead
 
+Web App Prototype:
+https://cabmate-app.vercel.app/
+
 Dataset Used:
 https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 
