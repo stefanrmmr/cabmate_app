@@ -125,18 +125,18 @@ export default function Carousel({shortedArray, setDetailView, setSelectedDistri
             <MainContent>
               <ListElem>
                 <IconWrapper>
-                  <Icon src="./cash.svg" alt="Cash Icon"/>
+                  <Icon src="./demand.svg" alt="Demand Icon"/>
                 </IconWrapper>
                 <Text>
-                  {78}
+                  {Math.round(district.properties.value)}
                 </Text>
               </ListElem>
               <ListElem>
                 <IconWrapper>
-                  <Icon src="./demand.svg" alt="Demand Icon"/>
+                  <Icon src="./cash.svg" alt="Cash Icon"/>
                 </IconWrapper>
                 <Text>
-                  {236}
+                  {Math.round(district.properties.income) + " $"}
                 </Text>
               </ListElem>
               <ListElem>
@@ -144,7 +144,7 @@ export default function Carousel({shortedArray, setDetailView, setSelectedDistri
                   <Icon src="./distance.svg" alt="Distance Icon"/>
                 </IconWrapper>
                 <Text>
-                  {"7.5 miles"}
+                  {Math.round(district.properties.trip_dist) + " miles"}
                 </Text>
               </ListElem>
             </MainContent>

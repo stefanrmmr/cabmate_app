@@ -142,7 +142,7 @@ export default function BigCard({isDetailView, setDetailView, newFeature}){
           <Icon src="./cash.svg" alt="Cash Icon"/>
         </IconWrapper>
         <Text>
-          {"78 $"}
+          {Math.round(newFeature.properties.income) + " $"}
         </Text>
       </ListElem>
       <ListElem>
@@ -150,7 +150,7 @@ export default function BigCard({isDetailView, setDetailView, newFeature}){
           <Icon src="./gift.svg" alt="Tip Icon"/>
         </IconWrapper>
         <Text>
-          {"3 $"}
+         {Math.round(newFeature.properties.tip) + " $"}
         </Text>
       </ListElem>
       <ListElem>
@@ -166,7 +166,7 @@ export default function BigCard({isDetailView, setDetailView, newFeature}){
           <Icon src="./clock.svg" alt="Clock Icon"/>
         </IconWrapper>
         <Text>
-          {"14 min"}
+        {Math.round(newFeature.properties.duration) + " min"}
         </Text>
       </ListElem>
       <ListElem>
@@ -174,7 +174,7 @@ export default function BigCard({isDetailView, setDetailView, newFeature}){
           <Icon src="./distance.svg" alt="Distance Icon"/>
         </IconWrapper>
         <Text>
-          {"7.5 miles"}
+        {Math.round(newFeature.properties.trip_dist) + " miles"}
         </Text>
       </ListElem>
     </MainContent>

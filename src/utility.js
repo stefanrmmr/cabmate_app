@@ -1,17 +1,22 @@
 
 export function updatePercentiles(featureCollection, data, viewport) {
     const {features} = featureCollection;
+    const demandArray = data[2];
     return {
       type: 'FeatureCollection',
-      features: features.map(f => {
-        const value =  Math.random() * 100; // data.exampleData[0].demand;
+      features: features.map((f,index) => {
+        const value =  demandArray[index];
         const distance = getDistanceFromLatLonInKm(f.geometry.coordinates[0][0][0][1],f.geometry.coordinates[0][0][0][0],viewport.latitude,viewport.longitude);
         const properties = {
           ...f.properties,
           value,
-          percentile: Math.round(value/10),
+          percentile: Math.round(value/20),
           distance,
-          score: value/distance.map(0, 40, 1, 2),
+          score: value/distance.map(0, 40, 1, 15),
+          income: 20 + ((Math.random() - 0.5) * 20),
+          tip: 5 + ((Math.random() - 0.5) * 6),
+          trip_dist: 5 + ((Math.random() - 0.5) * 6),
+          duration: 10 + ((Math.random() - 0.5) * 10),
         };
         return {...f, properties};
       })

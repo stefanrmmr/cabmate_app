@@ -22,7 +22,6 @@ mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worke
 
 export default function App() {
   const [isDetailView, setDetailView] = useState(false);
-  const [aiData, setAiData] = useState();
   const [viewport, setViewport] = useState({
     latitude: 40.640927,
     longitude: -73.973601,
@@ -32,14 +31,6 @@ export default function App() {
   });
   const [selectedDistric, setSelectedDistrict] = useState('188');
   let history = useHistory();
-
-  useEffect(() => {
-    fetch(
-      'https://raw.githubusercontent.com/uber/react-map-gl/master/examples/.data/us-income.geojson'
-    )
-      .then(resp => resp.json())
-      .then(json => setAiData(json));
-  }, []);
 
   const computedData = useMemo(() => {
     return data && updatePercentiles(data, exampleData, viewport);
