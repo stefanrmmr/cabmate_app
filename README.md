@@ -7,8 +7,13 @@ Dataset Used:
 https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 
 ## TeamMembers:
-- Ramona Dombetzki    (FrontEnd/UX/UI/React App)
-- Nils JacobSen       (FrontEnd/UX/UI/React App)
-- Sebastian Wilhelm   (BusinessCase/Strategy/ML)
-- Oliver Kovacs       (BackEnd/ML-Dev/Azure/Data)
-- Stefan Rummer       (BackEnd/ML-Dev/Azure/Data)
+- Ramona Dombetzki    (FrontEnd/UX/UI/React-App)
+https://www.linkedin.com/in/ramona-dombetzki-9a52531a0/
+- Nils JacobSen       (FrontEnd/UX/UI/React-App)
+https://www.linkedin.com/in/nils-jacobsen/
+- Sebastian Wilhelm   (BusinessCase/Strategy/ML-Dev)
+https://www.linkedin.com/in/sebastian-wilhelm/
+- Oliver Kovacs       (BackEnd/ML-Dev/Azure/Data-Analytics)
+https://www.linkedin.com/in/oliver-kovacs/
+- Stefan Rummer       (BackEnd/ML-Dev/Azure/Data-Analytics)
+https://www.linkedin.com/in/stefanrmmr/
