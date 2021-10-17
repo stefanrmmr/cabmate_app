@@ -5,3 +5,10 @@ https://app.pitch.com/app/public/player/f190a4b1-e75f-4214-8029-d42ce60aaead
 
 Dataset Used:
 https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+
+## TeamMembers:
+- Ramona Dombetzki    (FrontEnd/UX/UI/React App)
+- Nils JacobSen       (FrontEnd/UX/UI/React App)
+- Sebastian Wilhelm   (BusinessCase/Strategy/ML)
+- Oliver Kovacs       (BackEnd/ML-Dev/Azure/Data)
+- Stefan Rummer       (BackEnd/ML-Dev/Azure/Data)
