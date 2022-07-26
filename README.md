@@ -3,22 +3,15 @@
 ## Winning project of TUM.ai Makeathon October 2021
 
 Pitch Deck:
-https://app.pitch.com/app/public/player/f190a4b1-e75f-4214-8029-d42ce60aaead
-
+https://app.pitch.com/app/public/player/f190a4b1-e75f-4214-8029-d42ce60aaead<br/>
 Web App Prototype:
-https://cabmate-app.vercel.app/
-
+https://cabmate-app.vercel.app/<br/>
 Dataset Used:
 https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 
 ## TeamMembers:
-- Ramona Dombetzki    (FrontEnd/UX/UI/React-App)
-https://www.linkedin.com/in/ramona-dombetzki-9a52531a0/
-- Nils JacobSen       (FrontEnd/UX/UI/React-App)
-https://www.linkedin.com/in/nils-jacobsen/
-- Sebastian Wilhelm   (BusinessCase/Strategy/ML-Dev)
-https://www.linkedin.com/in/sebastian-wilhelm/
-- Oliver Kovacs       (BackEnd/ML-Dev/Azure/Data-Analytics)
-https://www.linkedin.com/in/oliver-kovacs/
-- Stefan Rummer       (BackEnd/ML-Dev/Azure/Data-Analytics)
-https://www.linkedin.com/in/stefanrmmr/
+- [Ramona Dombetzki](https://www.linkedin.com/in/ramona-dombetzki-9a52531a0)    (FrontEnd/UX/UI/React-App)
+- [Nils Jacobsen](https://www.linkedin.com/in/nils-jacobsen/)       (FrontEnd/UX/UI/React-App)
+- [Sebastian Wilhelm](https://www.linkedin.com/in/sebastian-wilhelm/)   (BusinessCase/Strategy/ML-Dev)
+- [Oliver Kovacs](https://www.linkedin.com/in/oliver-kovacs/)       (BackEnd/ML-Dev/Azure/Data-Analytics)
+- [Stefan Rummer](https://www.linkedin.com/in/stefanrmmr/)       (BackEnd/ML-Dev/Azure/Data-Analytics)
